@@ -1,0 +1,44 @@
+@if (products) {
+<div class="p-4">
+  <div
+    class="group h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+  >
+    <img
+      class="h-[250px] md:h-36 w-full object-cover object-center"
+      [src]="products.imageCover"
+      alt="blog"
+    />
+    <div class="p-6">
+      <h2
+        class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+      >
+        {{ products.category.name }}
+      </h2>
+      <h3 class="title-font text-lg font-medium text-gray-900 mb-3">
+        {{ products.title }}
+      </h3>
+      <p class="leading-relaxed mb-3 line-clamp-1">
+        {{ products.description }}
+      </p>
+      <div class="items-center flex-wrap">
+        <span
+          class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+        >
+          1.2K
+        </span>
+        <span
+          class="text-gray-400 inline-flex items-center leading-none text-sm"
+        >
+          6
+        </span>
+        <button
+          class="flex justify-center group-hover:translate-y-[0] duration-300 lg:translate-y-[300%] w-full my-2 bg-green-500 text-white border-0 py-2 px-6 rounded"
+        >
+          Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+}

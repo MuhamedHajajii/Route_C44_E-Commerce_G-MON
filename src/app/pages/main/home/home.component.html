@@ -1,0 +1,24 @@
+<!-- Hero Carousel -->
+
+<!-- Hero Banner -->
+
+@if (allCategories) {
+<owl-carousel-o [options]="customOptions">
+  @for (category of allCategories.data; track category._id) {
+  <ng-template carouselSlide>
+    <div>
+      {{ $index }}
+      <img
+        class="h-[250px] w-full object-cover object-center"
+        [src]="category.image"
+        alt="blog"
+      />
+      <p>{{ category.name }}</p>
+    </div>
+  </ng-template>
+  }
+</owl-carousel-o>
+}
+
+<!-- Products -->
+<app-home-products [allProducts]="allProducts"></app-home-products>

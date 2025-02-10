@@ -1,0 +1,175 @@
+<nav class="bg-gray-100">
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <!-- logo -->
+    <a
+      href="https://flowbite.com/"
+      class="flex items-center space-x-3 rtl:space-x-reverse"
+    >
+      <img src="/images/freshcart-logo.svg" alt="fresh market" />
+    </a>
+
+    <!-- collapse -->
+    <button
+      data-collapse-toggle="routerLink-default"
+      type="buttontext-white bg-green-500"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-500 font-semibold dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+
+    <!-- links -->
+    <div
+      class="flex justify-between flex-grow-1 w-full md:w-auto"
+      id="navbar-default"
+    >
+      @if (isLogin) {
+      <ul
+        class="capitalize font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            routerLink="home"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >home</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="Products"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >Products</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="cart"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >cart</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="categories"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >categories</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="brands"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >brands</a
+          >
+        </li>
+      </ul>
+      }
+
+      <ul
+        class="flex-grow-1 justify-end capitalize font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            href="https://www.google.com"
+            aria-label="follow on facebook"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+          >
+            <i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.com"
+            aria-label="follow on facebook"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+          >
+            <i class="fa-brands fa-facebook"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.com"
+            aria-label="follow on facebook"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+          >
+            <i class="fa-brands fa-tiktok"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.com"
+            aria-label="follow on facebook"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+          >
+            <i class="fa-brands fa-twitter"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.com"
+            aria-label="follow on facebook"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+          >
+            <i class="fa-brands fa-youtube"></i
+          ></a>
+        </li>
+      </ul>
+
+      <ul
+        class="capitalize font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        @if(!isLogin) {
+        <li>
+          <a
+            routerLink="login"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >login</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="register"
+            routerLinkActive="text-white bg-green-500"
+            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            >register</a
+          >
+        </li>
+        } @if (isLogin) {
+        <li>
+          <button
+            routerLink="login"
+            role="button"
+            class="text-gray-500 cursor-pointer font-semibold block py-2 px-3 rounded-sm"
+          >
+            logout
+          </button>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
