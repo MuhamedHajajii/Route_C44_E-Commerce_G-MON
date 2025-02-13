@@ -1,0 +1,16 @@
+@if (allCategories) {
+<owl-carousel-o [options]="customOptions">
+  @for (category of allCategories.data; track category._id) {
+  <ng-template carouselSlide>
+    <div>
+      <img
+        class="h-[250px] w-full object-cover object-center"
+        [src]="category.image"
+        alt="blog"
+      />
+      <p>{{ category.name }}</p>
+    </div>
+  </ng-template>
+  }
+</owl-carousel-o>
+}

@@ -10,21 +10,40 @@ import { BrandsComponent } from './pages/main/brands/brands.component';
 import { DetailsComponent } from './pages/main/details/details.component';
 import { CartComponent } from './pages/main/cart/cart.component';
 import { ProductsComponent } from './pages/main/products/products.component';
+import { authGuard } from './core/guards/auth.guard';
+import { isLoginGuard } from './core/guards/is-login.guard';
+import { NonLogPasswordComponent } from './auth/page/non-log-password/non-log-password.component';
+import { ForgetPasswordComponent } from './auth/page/forget-password/forget-password.component';
+import { OtpPasswordComponent } from './auth/page/otp-password/otp-password.component';
+import { SendNonLogPasswordComponent } from './auth/page/send-non-log-password/send-non-log-password.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: AuthLayoutComponent,
+    canActivate: [isLoginGuard],
     children: [
-      { path: '', redirectTo: 'auth', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: SignInComponent },
       { path: 'register', component: SignUpComponent },
+      {
+        path: 'forget-password',
+        component: NonLogPasswordComponent,
+        children: [
+          { path: '', redirectTo: 'email', pathMatch: 'full' },
+          { path: 'email', component: ForgetPasswordComponent },
+          { path: 'otp', component: OtpPasswordComponent },
+          { path: 'passreset', component: SendNonLogPasswordComponent },
+        ],
+      },
     ],
   },
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [authGuard],
     children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'Products', component: ProductsComponent },
       { path: 'cart', component: CartComponent },

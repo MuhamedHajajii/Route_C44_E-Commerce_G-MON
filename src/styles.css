@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./styles/typography/typographty.css";
+
 @import "tailwindcss";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
+
+@import "./styles/theme/theme.css";
+@import "./styles/base/base.css";
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}

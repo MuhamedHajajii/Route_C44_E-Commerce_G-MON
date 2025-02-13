@@ -1,0 +1,10 @@
+.btn-main {
+  @apply bg-main-400 hover:bg-main-800 duration-300 text-gray-100 focus:outline-none;
+}
+
+/* .ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.ng-valid.ng-touched {
+  border: 1px solid green;
+} */

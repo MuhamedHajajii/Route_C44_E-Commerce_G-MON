@@ -1,1 +1,193 @@
-<p>sign-up works!</p>
+<div class="w-full min-h-screen flex py-20 justify-center bg-indigo-100">
+  <form
+    [formGroup]="authForm"
+    (ngSubmit)="onSubmitForm()"
+    class="w-full md:w-2/3 border-gray-300 p-3 drop-shadow-lg border-2 rounded-lg"
+  >
+    <h2 class="text-2xl text-center my-9 text-gray-900 mb-8">register</h2>
+    <div class="capitalize px-12 pb-10">
+      <!-- input Field ( name ) -->
+      <div class="w-full mb-2">
+        @let userName = authForm.get('name');
+        <div>
+          <label class="mb-2 block" for="name">name:</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="name"
+            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+            formControlName="name"
+          />
+
+          @if (userName?.errors && userName?.touched) {
+          <div
+            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            role="alert"
+          >
+            <p class="font-bold"></p>
+            @if (userName?.getError('required')) {
+            <p>required</p>
+            } @else if (userName?.getError('minlength')) {
+            <p>min length 3</p>
+            } @else if (userName?.getError('maxlength')) {
+            <p>max length 3</p>
+            }
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- input Field ( email ) -->
+      <div class="w-full mb-2">
+        @let userEmail = authForm.get('email');
+        <div>
+          <label class="mb-2 block" for="email">email:</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="email"
+            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+            formControlName="email"
+          />
+
+          @if (userEmail?.errors && userEmail?.touched) {
+          <div
+            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            role="alert"
+          >
+            <p class="font-bold"></p>
+            @if (userEmail?.getError('required')) {
+            <p>required</p>
+            } @else if (userEmail?.getError('email')) {
+            <p>email invalid</p>
+            }
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- input Field ( password ) -->
+      <div class="w-full mb-2">
+        @let userPassword = authForm.get('password');
+        <div>
+          <label class="mb-2 block" for="password">password:</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="password"
+            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+            formControlName="password"
+          />
+
+          @if (userPassword?.errors && userPassword?.touched) {
+          <div
+            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            role="alert"
+          >
+            <p class="font-bold"></p>
+            @if (userPassword?.getError('required')) {
+            <p>required</p>
+            } @else if (userPassword?.getError('pattern')) {
+            <p>Invalid Password</p>
+            }
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- input Field ( rePassword ) -->
+      <div class="w-full mb-2">
+        @let userRePassword = authForm.get('rePassword'); @let GloableError =
+        authForm.getError('passwordMissMatch');
+        <div>
+          <label class="mb-2 block" for="rePassword">rePassword:</label>
+          <input
+            id="rePassword"
+            type="password"
+            placeholder="rePassword"
+            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+            formControlName="rePassword"
+          />
+
+          @if ((userRePassword?.errors && userRePassword?.touched) ||
+          GloableError) {
+          <div
+            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            role="alert"
+          >
+            <p class="font-bold"></p>
+            @if (userRePassword?.getError('required')) {
+            <p>required</p>
+            } @else if (GloableError) {
+            <p>password and rePassword not match</p>
+            }
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- input Field ( phone ) -->
+      <div class="w-full mb-2">
+        @let uesrPhone = authForm.get('phone');
+        <div>
+          <label class="mb-2 block" for="phone">phone:</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="phone"
+            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+            formControlName="phone"
+          />
+
+          @if (uesrPhone?.errors && uesrPhone?.touched) {
+          <div
+            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            role="alert"
+          >
+            <p class="font-bold"></p>
+            @if (uesrPhone?.getError('required')) {
+            <p>required</p>
+            } @else if (uesrPhone?.getError('pattern')) {
+            <p>Invalid Phone</p>
+            }
+          </div>
+          }
+        </div>
+      </div>
+
+      <button
+        [disabled]="isLoading"
+        class="w-full disabled:cursor-not-allowed disabled:bg-main-200 py-2 mt-8 rounded-full cursor-pointer hover:bg-main-600 duration-200 bg-main-400 text-gray-100 focus:outline-none"
+      >
+        register
+        <i
+          class="fas fa-spinner fa-spin"
+          [class]="{ '!hidden': !isLoading }"
+        ></i>
+      </button>
+
+      @if (errorMessage.length > 0) {
+      <div class="my-4">
+        <div
+          class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+          role="alert"
+        >
+          <p class="font-bold"></p>
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+      } @if(successMessage.length > 0) {
+      <div class="my-4">
+        <div
+          class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4"
+          role="alert"
+        >
+          <p class="font-bold"></p>
+          <p>{{ successMessage }}</p>
+        </div>
+      </div>
+
+      }
+    </div>
+  </form>
+</div>

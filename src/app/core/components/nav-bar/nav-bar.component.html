@@ -4,7 +4,7 @@
   >
     <!-- logo -->
     <a
-      href="https://flowbite.com/"
+      routerLink="home"
       class="flex items-center space-x-3 rtl:space-x-reverse"
     >
       <img src="/images/freshcart-logo.svg" alt="fresh market" />
@@ -13,8 +13,8 @@
     <!-- collapse -->
     <button
       data-collapse-toggle="routerLink-default"
-      type="buttontext-white bg-green-500"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-500 font-semibold dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      type="buttontext-white bg-500-main"
+      class="inline-flex items - er p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-500 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       aria-controls="navbar-default"
       aria-expanded="false"
     >
@@ -48,40 +48,40 @@
         <li>
           <a
             routerLink="home"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
             >home</a
           >
         </li>
         <li>
           <a
             routerLink="Products"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 d block py-2 px-3 rounded-sm"
             >Products</a
           >
         </li>
         <li>
           <a
             routerLink="cart"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
             >cart</a
           >
         </li>
         <li>
           <a
             routerLink="categories"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 font-semibol d block py-2 px-3 rounded-sm"
             >categories</a
           >
         </li>
         <li>
           <a
             routerLink="brands"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
             >brands</a
           >
         </li>
@@ -95,7 +95,7 @@
           <a
             href="https://www.google.com"
             aria-label="follow on facebook"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
           >
             <i class="fa-brands fa-instagram"></i
           ></a>
@@ -104,7 +104,7 @@
           <a
             href="https://www.google.com"
             aria-label="follow on facebook"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
           >
             <i class="fa-brands fa-facebook"></i
           ></a>
@@ -113,7 +113,7 @@
           <a
             href="https://www.google.com"
             aria-label="follow on facebook"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
           >
             <i class="fa-brands fa-tiktok"></i
           ></a>
@@ -122,7 +122,7 @@
           <a
             href="https://www.google.com"
             aria-label="follow on facebook"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
           >
             <i class="fa-brands fa-twitter"></i
           ></a>
@@ -131,7 +131,7 @@
           <a
             href="https://www.google.com"
             aria-label="follow on facebook"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            class="text-gray-500 block py-2 px-3 rounded-sm"
           >
             <i class="fa-brands fa-youtube"></i
           ></a>
@@ -145,25 +145,25 @@
         <li>
           <a
             routerLink="login"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 font-semibol d block py-2 px-3 rounded-sm"
             >login</a
           >
         </li>
         <li>
           <a
             routerLink="register"
-            routerLinkActive="text-white bg-green-500"
-            class="text-gray-500 font-semibold block py-2 px-3 rounded-sm"
+            routerLinkActive="text-white bg-main-500"
+            class="text-gray-500 font-semibol d block py-2 px-3 rounded-sm"
             >register</a
           >
         </li>
         } @if (isLogin) {
         <li>
           <button
-            routerLink="login"
+            (click)="logout()"
             role="button"
-            class="text-gray-500 cursor-pointer font-semibold block py-2 px-3 rounded-sm"
+            class="text-gray-500 cursor-pointer block py-2 px-3 rounded-sm"
           >
             logout
           </button>
