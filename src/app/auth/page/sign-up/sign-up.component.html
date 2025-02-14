@@ -1,155 +1,152 @@
-<div class="w-full min-h-screen flex py-20 justify-center bg-indigo-100">
+<div class="w-full h-screen flex items-center justify-center">
   <form
-    [formGroup]="authForm"
+    [formGroup]="submitForm"
     (ngSubmit)="onSubmitForm()"
-    class="w-full md:w-2/3 border-gray-300 p-3 drop-shadow-lg border-2 rounded-lg"
+    class="w-full md:w-2/3 rounded-lg border p-3 drop-shadow-md"
   >
-    <h2 class="text-2xl text-center my-9 text-gray-900 mb-8">register</h2>
-    <div class="capitalize px-12 pb-10">
-      <!-- input Field ( name ) -->
+    <h2 class="text-2xl my-20 text-center text-gray-900 mb-8">Register</h2>
+    <div class="px-12 pb-10 validation_classes">
+      <!-- Input Field ( name ) -->
       <div class="w-full mb-2">
-        @let userName = authForm.get('name');
         <div>
-          <label class="mb-2 block" for="name">name:</label>
+          @let userName = submitForm.get('name');
+          <label for="name">name</label>
           <input
             id="name"
             type="text"
             placeholder="name"
             class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
             formControlName="name"
+            autocomplete="off"
           />
 
           @if (userName?.errors && userName?.touched) {
+
           <div
-            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            class="bg-red-100 my-3 border-l-4 border-red-500 text-red-700 p-4"
             role="alert"
           >
             <p class="font-bold"></p>
-            @if (userName?.getError('required')) {
-            <p>required</p>
-            } @else if (userName?.getError('minlength')) {
-            <p>min length 3</p>
-            } @else if (userName?.getError('maxlength')) {
-            <p>max length 3</p>
-            }
+            <p>
+              @if (userName?.getError('required')) { Required } @else if
+              (userName?.getError('minlength')) { min length 3 } @else if
+              (userName?.getError('maxlength')) { max length 20 }
+            </p>
           </div>
           }
         </div>
       </div>
-
-      <!-- input Field ( email ) -->
+      <!-- Input Field ( email ) -->
       <div class="w-full mb-2">
-        @let userEmail = authForm.get('email');
         <div>
-          <label class="mb-2 block" for="email">email:</label>
+          @let userEmail = submitForm.get('email');
+          <label for="email">email</label>
           <input
             id="email"
             type="email"
             placeholder="email"
             class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
             formControlName="email"
+            autocomplete="off"
           />
 
           @if (userEmail?.errors && userEmail?.touched) {
+
           <div
-            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            class="bg-red-100 my-3 border-l-4 border-red-500 text-red-700 p-4"
             role="alert"
           >
             <p class="font-bold"></p>
-            @if (userEmail?.getError('required')) {
-            <p>required</p>
-            } @else if (userEmail?.getError('email')) {
-            <p>email invalid</p>
-            }
+            <p>
+              @if (userEmail?.getError('required')) { Required } @else if
+              (userEmail?.getError('email')) { email invalid }
+            </p>
           </div>
           }
         </div>
       </div>
-
-      <!-- input Field ( password ) -->
+      <!-- Input Field ( password ) -->
       <div class="w-full mb-2">
-        @let userPassword = authForm.get('password');
         <div>
-          <label class="mb-2 block" for="password">password:</label>
+          @let userPassword = submitForm.get('password');
+          <label for="password">password</label>
           <input
             id="password"
             type="password"
             placeholder="password"
             class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
             formControlName="password"
+            autocomplete="off"
           />
 
           @if (userPassword?.errors && userPassword?.touched) {
+
           <div
-            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            class="bg-red-100 my-3 border-l-4 border-red-500 text-red-700 p-4"
             role="alert"
           >
             <p class="font-bold"></p>
-            @if (userPassword?.getError('required')) {
-            <p>required</p>
-            } @else if (userPassword?.getError('pattern')) {
-            <p>Invalid Password</p>
-            }
+            <p>
+              @if (userPassword?.getError('required')) { Required } @else if
+              (userPassword?.getError('pattern')) { password invalid }
+            </p>
           </div>
           }
         </div>
       </div>
-
-      <!-- input Field ( rePassword ) -->
+      <!-- Input Field ( rePassword ) -->
       <div class="w-full mb-2">
-        @let userRePassword = authForm.get('rePassword'); @let GloableError =
-        authForm.getError('passwordMissMatch');
         <div>
-          <label class="mb-2 block" for="rePassword">rePassword:</label>
+          @let userRepassword = submitForm.get('rePassword');
+          <label for="RePassword">RePassword</label>
           <input
-            id="rePassword"
-            type="password"
-            placeholder="rePassword"
+            id="RePassword"
+            type="RePassword"
+            placeholder="RePassword"
             class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
             formControlName="rePassword"
+            autocomplete="off"
           />
+          @if (submitForm.getError('missMatch') && userRepassword?.touched) {
 
-          @if ((userRePassword?.errors && userRePassword?.touched) ||
-          GloableError) {
           <div
-            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            class="bg-red-100 my-3 border-l-4 border-red-500 text-red-700 p-4"
             role="alert"
           >
             <p class="font-bold"></p>
-            @if (userRePassword?.getError('required')) {
-            <p>required</p>
-            } @else if (GloableError) {
-            <p>password and rePassword not match</p>
-            }
+            <p>
+              @if (userRepassword?.getError('required')) { Required } @else if
+              (submitForm.getError('missMatch')) { password invalid }
+            </p>
           </div>
           }
         </div>
       </div>
-
-      <!-- input Field ( phone ) -->
+      <!-- Input Field ( phone ) -->
       <div class="w-full mb-2">
-        @let uesrPhone = authForm.get('phone');
         <div>
-          <label class="mb-2 block" for="phone">phone:</label>
+          @let userPhone = submitForm.get('phone');
+          <label for="phone">phone</label>
           <input
             id="phone"
             type="tel"
             placeholder="phone"
             class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
             formControlName="phone"
+            autocomplete="off"
           />
 
-          @if (uesrPhone?.errors && uesrPhone?.touched) {
+          @if (userPhone?.errors && userPhone?.touched) {
+
           <div
-            class="my-3 bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+            class="bg-red-100 my-3 border-l-4 border-red-500 text-red-700 p-4"
             role="alert"
           >
             <p class="font-bold"></p>
-            @if (uesrPhone?.getError('required')) {
-            <p>required</p>
-            } @else if (uesrPhone?.getError('pattern')) {
-            <p>Invalid Phone</p>
-            }
+            <p>
+              @if (userPhone?.getError('required')) { Required } @else if
+              (userPhone?.getError('pattern')) { phone invalid }
+            </p>
           </div>
           }
         </div>
@@ -157,36 +154,35 @@
 
       <button
         [disabled]="isLoading"
-        class="w-full disabled:cursor-not-allowed disabled:bg-main-200 py-2 mt-8 rounded-full cursor-pointer hover:bg-main-600 duration-200 bg-main-400 text-gray-100 focus:outline-none"
+        class="disabled:!bg-main-200 disabled:cursor-not-allowed cursor-pointer w-full py-2 mt-8 rounded-full bg-main-400 text-gray-100 focus:outline-none"
       >
-        register
+        Submit
         <i
-          class="fas fa-spinner fa-spin"
           [class]="{ '!hidden': !isLoading }"
+          class="fas fa-spin fa-spinner"
         ></i>
       </button>
 
-      @if (errorMessage.length > 0) {
-      <div class="my-4">
-        <div
-          class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
-          role="alert"
-        >
-          <p class="font-bold"></p>
-          <p>{{ errorMessage }}</p>
-        </div>
+      @if (errorMessage.length>0) {
+      <div
+        class="bg-red-100 border-l-4 my-3 border-red-500 text-red-700 p-4"
+        role="alert"
+      >
+        <p class="font-bold"></p>
+        <p>
+          {{ errorMessage }}
+        </p>
       </div>
-      } @if(successMessage.length > 0) {
-      <div class="my-4">
-        <div
-          class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4"
-          role="alert"
-        >
-          <p class="font-bold"></p>
-          <p>{{ successMessage }}</p>
-        </div>
+      } @if (successMessage.length > 0) {
+      <div
+        class="bg-green-100 my-3 border-l-4 border-green-500 text-green-700 p-4"
+        role="alert"
+      >
+        <p class="font-bold"></p>
+        <p>
+          {{ successMessage }}
+        </p>
       </div>
-
       }
     </div>
   </form>

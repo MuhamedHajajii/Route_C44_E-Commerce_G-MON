@@ -9,7 +9,7 @@ import { BASE_WEBSITE_URL } from '../../core/constants/BASE_WEBSITE_URL';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  logIn(userData: {}): Observable<any> {
+  signIn(userData: {}): Observable<any> {
     return this.http.post(`${BASE_WEBSITE_URL}/api/v1/auth/signin`, userData);
   }
   signUp(userData: {}): Observable<any> {

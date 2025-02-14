@@ -9,9 +9,11 @@
 @import "./styles/theme/theme.css";
 @import "./styles/base/base.css";
 
-input.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
-input.ng-valid.ng-touched {
-  border: 1px solid green;
+.validation_classes {
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  input.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
 }
