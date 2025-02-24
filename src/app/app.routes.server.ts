@@ -4,6 +4,6 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'home', renderMode: RenderMode.Client },
   {
     path: '**',
-    renderMode: RenderMode.Prerender,
+    renderMode: RenderMode.Server,
   },
 ];
