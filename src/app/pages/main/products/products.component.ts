@@ -1,10 +1,9 @@
-import { DatePipe, KeyValuePipe, SlicePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { SliceDataPipe } from '../../../shared/pipes/slice-data.pipe';
 
 @Component({
   selector: 'app-products',
-  imports: [SlicePipe, DatePipe, KeyValuePipe, SliceDataPipe],
+  imports: [SliceDataPipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
